@@ -13,8 +13,8 @@ def main():
     # run_test_triangle_upside_down()
     # run_test_vee()
     # run_test_numbers_constant_forward()
-    run_test_numbers_constant_backwards()
-    # run_test_numbers_increasing_forward()
+    # run_test_numbers_constant_backwards()
+    run_test_numbers_increasing_forward()
 
 
 def run_test_triangle_right_justified():
@@ -344,8 +344,14 @@ def numbers_increasing_forward(r, maxnum):
 
     Preconditions:  r and maxnum are positive integers.
     """
+    for k in range(r):
+        for s in range(maxnum):
+            for n in range(s + 1):
+                print(s + 1, end='')
+            print(' ', end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
