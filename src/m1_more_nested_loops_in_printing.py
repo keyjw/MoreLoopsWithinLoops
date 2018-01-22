@@ -10,10 +10,10 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 def main():
     """ Calls the other functions to test them. """
     # run_test_triangle_right_justified()
-    run_test_triangle_upside_down()
+    # run_test_triangle_upside_down()
     # run_test_vee()
     # run_test_numbers_constant_forward()
-    # run_test_numbers_constant_backwards()
+    run_test_numbers_constant_backwards()
     # run_test_numbers_increasing_forward()
 
 
@@ -171,9 +171,17 @@ def vee(r):
     Precondition:  r is a non-negative integer.
     For purposes of "lining up", assume r is a single digit.
     """
-
+    for k in range(r):
+        for _ in range(k):
+            print(' ', end='')
+        for n in range(r - k):
+            print(n + 1, end='')
+        print('-', end='')
+        for s in range(r - k):
+            print(r - s - k, end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -228,8 +236,14 @@ def numbers_constant_forward(r, maxnum, n):
 
     Preconditions:  r, maxnum and n are positive integers.
     """
+    for _ in range(r):
+        for s in range(maxnum):
+            for _ in range(n):
+                print(s + 1, end='')
+            print(' ', end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # HINT: What loop structure do you need for this problem?
@@ -272,8 +286,14 @@ def numbers_constant_backwards(r, maxnum, n):
        777 666 555 444 333 222 111
     Preconditions:  r, maxnum and n are positive integers.
     """
+    for _ in range(r):
+        for s in range(maxnum):
+            for _ in range(n):
+                print(maxnum - s, end='')
+            print(' ', end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
