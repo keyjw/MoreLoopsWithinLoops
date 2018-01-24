@@ -84,14 +84,25 @@ def largest_number(seq_seq):
     list = []
     for k in range(len(seq_seq)):
         seq = seq_seq[k]
-        maximum = seq[0]
+        if seq == []:
+            temp_max = None
+        else:
+            temp_max = seq[0]
         for s in range(len(seq)):
-            if seq[s] > maximum:
-                maximum = seq[s]
-        list += [maximum]
-    print(maximum)
+            if temp_max < seq[s]:
+                temp_max = seq[s]
+        if temp_max != None:
+            list += [temp_max]
+    if len(list) == 0:
+        return None
+    else:
+        maximum = list[0]
+        for n in range(len(list)):
+            if maximum < list[n]:
+                maximum = list[n]
+        return maximum
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
 
