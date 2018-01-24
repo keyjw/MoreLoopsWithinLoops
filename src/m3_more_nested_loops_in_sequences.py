@@ -9,9 +9,9 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 
 def main():
     """ Calls the other functions to test them. """
-    # run_test_largest_number()
+    run_test_largest_number()
     run_test_largest_negative_number()
-    # run_test_first_is_elsewhere_too()
+    run_test_first_is_elsewhere_too()
 
 
 def run_test_largest_number():
@@ -189,7 +189,7 @@ def largest_negative_number(seq_seq):
     else:
         return min
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # CHALLENGE: Try to solve this problem with no additional sequences
@@ -428,8 +428,20 @@ def first_is_elsewhere_too(seq_seq):
       :type seq_seq: (list, tuple)
     and the given argument is a sequence of sequences.
     """
+    first = seq_seq[0]
+    if first != []:
+        for k in range(len(first)):
+            for s in range(1, len(seq_seq)):
+                seq = seq_seq[s]
+                if seq == []:
+                    return True
+                else:
+                    for n in range(len(seq)):
+                        if first[k] == seq[n]:
+                            return True
+    return False
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
