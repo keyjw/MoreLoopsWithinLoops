@@ -9,8 +9,8 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 
 def main():
     """ Calls the other functions to test them. """
-    run_test_largest_number()
-    # run_test_largest_negative_number()
+    # run_test_largest_number()
+    run_test_largest_negative_number()
     # run_test_first_is_elsewhere_too()
 
 
@@ -110,7 +110,7 @@ def largest_number(seq_seq):
 def run_test_largest_negative_number():
     """ Tests the    largest_negative_number    function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # DONE: 4. Implement this TEST function.
     #   It TESTS the  largest_negative_number  function defined below.
     #
     #   Include enough tests to give you confidence that your solution
@@ -120,6 +120,31 @@ def run_test_largest_negative_number():
     print('-------------------------------------------------')
     print('Testing the   LARGEST_NEGATIVE_NUMBER   function:')
     print('-------------------------------------------------')
+
+    # Test 1:
+    expected = -1
+    answer = largest_negative_number(([4, 6, 7, 2, 1], [-1], [8, 2, 4]))
+    print('Expected and actual are:', expected, answer)
+
+    # Test 2:
+    expected = -3
+    answer = largest_negative_number([(1, 2, 3), (3, -2, 1), (-3, 1, -2), (4,)])
+    print('Expected and actual are:', expected, answer)
+
+    # Test 3:
+    expected = None
+    answer = largest_negative_number(([56, 46, 100], [1, 2, 3, 4, 5, 6], [44, 22, 13]))
+    print('Expected and actual are:', expected, answer)
+
+    # Test 4:
+    expected = -111111
+    answer = largest_negative_number([[], [-111111], [50]])
+    print('Expected and actual are:', expected, answer)
+
+    # Test 5:
+    expected = None
+    answer = largest_negative_number(([], [], [], []))
+    print('Expected and actual are:', expected, answer)
 
 
 def largest_negative_number(seq_seq):
@@ -144,6 +169,25 @@ def largest_negative_number(seq_seq):
     and the given argument is a sequence of sequences,
     where each subsequence contains only numbers.
     """
+    list = []
+    for k in range(len(seq_seq)):
+        seq = seq_seq[k]
+        if seq != []:
+            minimum = seq[0]
+            for s in range(len(seq)):
+                if minimum > seq[s]:
+                    minimum = seq[s]
+            list += [minimum]
+    if list == []:
+        return None
+    min = list[0]
+    for n in range(len(list)):
+        if min > list[n]:
+            min = list[n]
+    if min > -1:
+        return None
+    else:
+        return min
     # ------------------------------------------------------------------
     # TODO: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
